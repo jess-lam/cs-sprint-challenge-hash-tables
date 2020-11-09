@@ -3,6 +3,24 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    result = []
+    arr = []
+
+    for i in range(0, len(arrays)):
+        cache= {}
+        for j in range(0, len(arrays[i])):
+            cache[arrays[i][j]] = 1
+        arr.append(cache)
+    
+    first_arr = arr[0]
+    others_arr = arr[1:]
+    for key in first_arr:
+        add = True
+        for cach in others_arr:
+            if key not in cach:
+                add = False
+        if add:
+            result.append(key)
 
     return result
 
